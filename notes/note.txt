@@ -1,0 +1,10 @@
+create express app
+    npm init --y
+
+install express
+    npm i express
+
+
+
+
+
