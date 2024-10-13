@@ -4,7 +4,8 @@ create express app
 install express
     npm i express
 
-
+Run app
+    node index.js
 
 
 
