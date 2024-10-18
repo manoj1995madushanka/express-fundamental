@@ -51,6 +51,26 @@ async function fetchUnMarriedUserNames() {
     console.log(users)
 }
 
+async function fetchUnMarriedUserNamesExclude() {
+    const users = await User.find({isMarried: false})
+        .select('-name -salary'); // - means exclude
+    console.log(users)
+}
+
+// ascending and descending orders
+async function fetchUnMarriedUserNamesAscendingSalary() {
+    const users = await User.find({isMarried: false})
+        .select('name salary')
+        .sort('salary');
+    console.log(users)
+}
+
+async function fetchUnMarriedUserNamesDescendingSalary() {
+    const users = await User.find({isMarried: false})
+        .select('name salary')
+        .sort('-salary');
+    console.log(users)
+}
 
 // storeInformation()
 fetchUnMarriedUserNames()
