@@ -151,5 +151,14 @@ async function updateSecondWay() {
     console.log(users)
 }
 
+// Delete data
+async function deleteById() {
+    await User.deleteOne({_id: '6712899a184ab9b5541a0024'});
+}
+
+async function deleteManyData() {
+    await User.deleteMany({isMarried: false});
+}
+
 // storeInformation()
 fetchUnMarriedUserNames()
