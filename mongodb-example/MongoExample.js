@@ -44,6 +44,13 @@ async function fetchUnMarriedUsersAndSalary() {
     console.log(users)
 }
 
+// fetch nly specific fields without fetching whole object
+async function fetchUnMarriedUserNames() {
+    const users = await User.find({isMarried: false})
+        .select('name salary');
+    console.log(users)
+}
+
 
 // storeInformation()
-fetchInformation()
+fetchUnMarriedUserNames()
