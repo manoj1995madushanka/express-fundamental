@@ -72,5 +72,21 @@ async function fetchUnMarriedUserNamesDescendingSalary() {
     console.log(users)
 }
 
+// Limit results
+async function fetchUnMarriedUserNamesDescendingSalaryLimit() {
+    const users = await User.find({isMarried: false})
+        .select('name salary')
+        .sort('-salary')
+        .limit(2);
+    console.log(users)
+}
+
+// count results
+async function fetchUnMarriedUserNamesCount() {
+    const users = await User.find({isMarried: false})
+        .countDocuments();
+    console.log(users)
+}
+
 // storeInformation()
 fetchUnMarriedUserNames()
