@@ -32,10 +32,12 @@ app.get("/four", function (req, res) {
     res.json(payload)
 })
 
+// download file
 app.get("/five", function (req, res) {
     res.download("./uploads/img.png")
 })
 
+// redirect
 app.get("/usa", function (req, res) {
     res.redirect("http://localhost:8000/sri_lanka")
 })
@@ -44,6 +46,7 @@ app.get("/sri_lanka", function (req, res) {
     res.send("Redirected to sri lanka ")
 })
 
+// set headers
 app.get("/six",function (req,res){
     // add headers
     res.append("name","Manoj")
