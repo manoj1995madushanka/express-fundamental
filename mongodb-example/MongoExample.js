@@ -127,5 +127,29 @@ async function fetchUsersSalaryIn() {
     console.log(users)
 }
 
+
+// Update document by id
+async function updateById() {
+    const users = await User.findById('6712899a184ab9b5541a0024');
+    users.isMarried = true
+    await users.save()
+    console.log(users)
+}
+
+// second way to update document
+async function updateSecondWay() {
+    const users = await User.findByIdAndUpdate(
+        '6712899a184ab9b5541a0024',
+        {
+            age: 45,
+            isMarried: false
+        },
+        {
+            new: true, runValidators: true
+        }
+    );
+    console.log(users)
+}
+
 // storeInformation()
 fetchUnMarriedUserNames()
