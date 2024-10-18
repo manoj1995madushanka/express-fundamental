@@ -108,6 +108,20 @@ async function fetchUsersAndQuery() {
     console.log(users)
 }
 
+/*
+* Find those users whose age is greater than 40 or they are unmarried
+* Find only name
+* Sort them by name
+*
+* */
+async function answerQuery() {
+    const users = await User.find()
+        .or([{age: {$gt: 40}}, {isMarries: false}])
+        .select('name')
+        .sort('age');
+    console.log(users)
+}
+
 async function fetchUsersSalaryIn() {
     const users = await User.find({salary: {$in: [5000, 10000, 15000]}});
     console.log(users)
