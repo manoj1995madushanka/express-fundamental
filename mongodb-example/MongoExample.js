@@ -27,4 +27,23 @@ async function storeInformation() {
     console.log(user)
 }
 
-storeInformation()
+// retrieve all users
+async function fetchInformation() {
+    const users = await User.find({});
+    console.log(users)
+}
+
+// fetch users who not married yet
+async function fetchUnMarriedUsers() {
+    const users = await User.find({isMarried: false});
+    console.log(users)
+}
+
+async function fetchUnMarriedUsersAndSalary() {
+    const users = await User.find({isMarried: false, salary: 80000});
+    console.log(users)
+}
+
+
+// storeInformation()
+fetchInformation()
