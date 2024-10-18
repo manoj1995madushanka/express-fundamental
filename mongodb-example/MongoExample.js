@@ -88,5 +88,17 @@ async function fetchUnMarriedUserNamesCount() {
     console.log(users)
 }
 
+// Comparison operators
+// eq, ne, gt, gte, lt, lte, in, nin
+async function fetchUsersAgeGreaterThan30() {
+    const users = await User.find({age: {$gt: 30}});
+    console.log(users)
+}
+
+async function fetchUsersSalaryIn() {
+    const users = await User.find({salary: {$in: [5000, 10000, 15000]}});
+    console.log(users)
+}
+
 // storeInformation()
 fetchUnMarriedUserNames()
